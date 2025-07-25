@@ -1,0 +1,14 @@
+service : {
+  "register_user": (principal, text, text, nat8) -> ();
+  "check_user_registered": (principal) -> (bool) query;
+  "login": (principal, text, text) -> (bool);
+  "upload_file": (text, text, nat8) -> ();
+  "read_file": (text, principal) -> (text);
+  "read_logs": (nat, text) -> (vec record {
+    text;
+    principal;
+    text;
+    text;
+    text;
+  }) query;
+}

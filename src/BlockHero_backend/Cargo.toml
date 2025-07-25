@@ -1,0 +1,24 @@
+[package]
+name = "BlockHero_backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[package.metadata.cargo-watch]
+build = [
+  "cargo build --target wasm32-unknown-unknown --release",
+  "ic-cdk-optimizer target/wasm32-unknown-unknown/release/BlockHero_backend.wasm -o target/wasm32-unknown-unknown/release/BlockHero_backend-opt.wasm"
+]
+
+[dependencies]
+candid = "0.10"
+ic-cdk = "0.16"
+sha2 = "0.10"
+chrono = "0.4"  # 최신 버전 사용
+serde = "1"
+hex = "0.4"
+
