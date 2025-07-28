@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useIdentity } from './IdentityContext';
 import { useUserId } from './UserContext';
 import { AuthClient } from '@dfinity/auth-client';
-import { login } from './api';
+import { login, checkUserRegistered } from './api';
 import { Principal } from "@dfinity/principal";
 import { motion } from 'framer-motion';
 import {
@@ -31,6 +31,14 @@ function Login() {
 
   const handleLogin = async () => {
     const identityPrincipal = typeof identity === "string" ? Principal.fromText(identity) : identity;
+    
+    // Check if user is registered first
+    const isRegistered = await checkUserRegistered(identityPrincipal);
+    if (!isRegistered) {
+      alert("User not registered. Please register first.");
+      return;
+    }
+    
     if (await login(identityPrincipal, id, pw)) {
       updateUserId(id);
       navigate('/');

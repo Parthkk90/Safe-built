@@ -1,0 +1,12 @@
+/mnt/f/Block_hero/BlockHero/target/release/deps/arrayvec-d4deb3c45904d8e3.d: /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/lib.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/maybe_uninit.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/array.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/array_string.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/char.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/errors.rs
+
+/mnt/f/Block_hero/BlockHero/target/release/deps/libarrayvec-d4deb3c45904d8e3.rlib: /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/lib.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/maybe_uninit.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/array.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/array_string.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/char.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/errors.rs
+
+/mnt/f/Block_hero/BlockHero/target/release/deps/libarrayvec-d4deb3c45904d8e3.rmeta: /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/lib.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/maybe_uninit.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/array.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/array_string.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/char.rs /home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/errors.rs
+
+/home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/lib.rs:
+/home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/maybe_uninit.rs:
+/home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/array.rs:
+/home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/array_string.rs:
+/home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/char.rs:
+/home/skpav/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/arrayvec-0.5.2/src/errors.rs:

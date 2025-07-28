@@ -1,27 +1,23 @@
 {
+  "version": 1,
   "canisters": {
     "BlockHero_backend": {
+      "type": "custom",
       "candid": "src/BlockHero_backend/BlockHero_backend.did",
-      "package": "BlockHero_backend",
-      "type": "rust"
-    },
-    "BlockHero_frontend": {
-      "dependencies": [
-        "BlockHero_backend"
-      ],
-      "source": [
-        "src/BlockHero_frontend/dist"
-      ],
-      "type": "assets",
-      "workspace": "BlockHero_frontend"
+      "wasm": "target/wasm32-unknown-unknown/release/BlockHero_backend.wasm",
+      "build": "cargo build --package BlockHero_backend --target wasm32-unknown-unknown --release"
     }
   },
   "defaults": {
     "build": {
-      "args": "",
-      "packtool": ""
+      "packtool": "",
+      "args": ""
     }
   },
-  "output_env_file": ".env",
-  "version": 1
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  }
 }
