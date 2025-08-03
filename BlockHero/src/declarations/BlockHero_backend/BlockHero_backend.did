@@ -1,10 +1,16 @@
+type LogEntry = record {
+  timestamp: text;
+  user: principal;
+  action: text;
+  details: text;
+  status: text;
+};
+
 service : {
-  check_user_registered : (principal) -> (bool) query;
-  login : (principal, text, text) -> (bool) query;
-  read_file : (text, principal) -> (text) query;
-  read_logs : (nat64, text) -> (
-      vec record { text; principal; text; text; text },
-    ) query;
-  register_user : (principal, text, text, nat8) -> ();
-  upload_file : (text, text, nat8) -> ();
+  "register_user": (principal, text, text, nat8) -> ();
+  "check_user_registered": (principal) -> (bool) query;
+  "login": (principal, text, text) -> (bool) query;
+  "upload_file": (text, text, nat8) -> ();
+  "read_file": (text, principal) -> (text) query;
+  "read_logs": (nat64, text) -> (vec LogEntry) query;
 }

@@ -1,5 +1,3 @@
-
-
 import { Actor, HttpAgent } from "@dfinity/agent";
 
 // Imports and re-exports candid interface
@@ -15,10 +13,13 @@ export const canisterId =
   process.env.CANISTER_ID_BLOCKHERO_BACKEND;
 
 export const createActor = (canisterId, options = {}) => {
-  const agent = options.agent || new HttpAgent({ 
-    host: "http://127.0.0.1:8000", // Try port 8000 if 4943 doesn't work
-    ...options.agentOptions 
-  });
+  const agent = options.agent || new HttpAgent({ ...options.agentOptions });
+
+  if (options.agent && options.agentOptions) {
+    console.warn(
+      "Detected both agent and agentOptions passed to createActor. Ignoring agentOptions and proceeding with the provided agent."
+    );
+  }
 
   // Fetch root key for certificate validation during development
   if (process.env.DFX_NETWORK !== "ic") {
@@ -30,6 +31,7 @@ export const createActor = (canisterId, options = {}) => {
     });
   }
 
+  // Creates an actor with using the candid interface and the HttpAgent
   return Actor.createActor(idlFactory, {
     agent,
     canisterId,
@@ -38,6 +40,3 @@ export const createActor = (canisterId, options = {}) => {
 };
 
 export const BlockHero_backend = canisterId ? createActor(canisterId) : undefined;
-
-
-
