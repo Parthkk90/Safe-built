@@ -1,11 +1,21 @@
 {
   "version": 1,
+  "dfx": "0.28.0",
   "canisters": {
     "BlockHero_backend": {
       "type": "custom",
       "candid": "src/BlockHero_backend/BlockHero_backend.did",
       "wasm": "target/wasm32-unknown-unknown/release/BlockHero_backend.wasm",
       "build": "cargo build --package BlockHero_backend --target wasm32-unknown-unknown --release"
+    },
+    "BlockHero_frontend": {
+      "type": "assets",
+      "source": [
+        "src/BlockHero_frontend/dist"
+      ],
+      "dependencies": [
+        "BlockHero_backend"
+      ]
     }
   },
   "defaults": {
@@ -19,5 +29,8 @@
       "bind": "127.0.0.1:8000",
       "type": "ephemeral"
     }
+  },
+  "features": {
+    "vetkd": true
   }
 }
