@@ -1,67 +1,81 @@
-# `BlockHero`
+# BlockHero
 
-Welcome to your new `BlockHero` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+BlockHero is a secure, decentralized file management application built on the Internet Computer. It provides a robust platform for user authentication, encrypted file storage, and detailed activity logging, making it suitable for handling sensitive data.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+## ✨ Features
 
-To learn more before you start working with `BlockHero`, see the following documentation available online:
+*   **Decentralized Identity**: Users are identified by their Internet Identity `Principal`.
+*   **Secure User Management**: Robust registration and login system.
+*   **Encrypted File Storage**: Files are uploaded and stored securely on-chain.
+*   **Access Control**: Only authorized users can access specific files.
+*   **Audit Trails**: Comprehensive logging of all significant actions (e.g., file uploads, reads) for transparency and security.
+*   **VETKD Integration**: Utilizes `vetKD` for advanced cryptographic operations, enabling features like threshold decryption.
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Rust Canister Development Guide](https://internetcomputer.org/docs/current/developer-docs/backend/rust/)
-- [ic-cdk](https://docs.rs/ic-cdk)
-- [ic-cdk-macros](https://docs.rs/ic-cdk-macros)
-- [Candid Introduction](https://internetcomputer.org/docs/current/developer-docs/backend/candid/)
+## 🛠️ Tech Stack
 
-If you want to start working on your project right away, you might want to try the following commands:
+*   **Backend Canister**: Rust
+*   **Frontend**: React (with Vite)
+*   **Blockchain**: Internet Computer Protocol
+*   **SDK**: DFINITY Canister SDK (`dfx`)
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+
+*   Node.js (v16.x or later)
+*   DFINITY Canister SDK (`dfx`)
+*   Rust with the `wasm32-unknown-unknown` target:
+    ```bash
+    rustup target add wasm32-unknown-unknown
+    ```
+
+## 🚀 Getting Started
+
+Follow these steps to get your local development environment up and running.
+
+### 1. Clone the Repository
 
 ```bash
-cd BlockHero/
-dfx help
-dfx canister --help
+git clone <your-repository-url>
+cd BlockHero
 ```
 
-## Generate candid file
+### 2. Install Dependencies
+
+Install the npm packages for the frontend and project tooling:
+
 ```bash
-cargo build --release --target wasm32-unknown-unknown --package BlockHero_backend && \
-candid-extractor target/wasm32-unknown-unknown/release/BlockHero_backend.wasm > src/BlockHero_backend/BlockHero_backend.did
+npm install
 ```
 
-## Running the project locally
+### 3. Start the Local Replica
 
-If you want to test your project locally, you can use the following commands:
+In a separate terminal, start a local instance of the Internet Computer. The `--clean` flag is recommended for a fresh start.
 
 ```bash
-# Starts the replica, running in the background
-dfx start --background
+dfx start --clean --background
+```
 
-# Deploys your canisters to the replica and generates your candid interface
+### 4. Deploy the Canisters
+
+Build and deploy your backend and frontend canisters to the local replica:
+
+```bash
 dfx deploy
 ```
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
+After a successful deployment, `dfx` will output the URL for your frontend canister.
 
-If you have made changes to your backend canister, you can generate a new candid interface with
+### 5. Access the Application
 
-```bash
-npm run generate
-```
+Open the frontend URL provided by the `dfx deploy` command in your web browser.
 
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
+## 💻 Frontend Development
 
-If you are making frontend changes, you can start a development server with
+For a better frontend development experience with hot-reloading, you can run the Vite development server after deploying your canisters.
 
 ```bash
 npm start
 ```
 
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-### Note on frontend environment variables
-
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
-
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+> **Note**: If you make changes to the backend canister (`src/BlockHero_backend/src/lib.rs`), you must run `dfx deploy` again to apply them.
