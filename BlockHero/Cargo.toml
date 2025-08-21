@@ -1,5 +1,6 @@
 [workspace]
-members = [
-    "src/BlockHero_backend"
+members = [ "Frontend",
+    "src/BlockHero_backend",
+    "src/BlockHero_frontend"
 ]
 resolver = "2"
