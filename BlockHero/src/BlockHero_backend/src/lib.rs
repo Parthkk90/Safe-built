@@ -27,6 +27,15 @@ struct Hero {
     superpower: String,
 }
 
+// --- Custom Error Type ---
+// Using a dedicated error enum is better than strings for error handling,
+// making it more robust and easier for clients to handle.
+#[derive(CandidType, Deserialize)]
+enum Error {
+    NotFound,
+    NotAuthorized,
+}
+
 // --- Canister State ---
 
 // We will use a HashMap to store heroes, mapping a HeroId to a Hero struct.
@@ -87,42 +96,35 @@ fn get_all_heroes() -> Vec<(HeroId, Hero)> {
 
 // Updates an existing hero. Only the owner of the hero can update it.
 #[update]
-fn update_hero(id: HeroId, name: String, superpower: String) -> Result<(), String> {
+fn update_hero(id: HeroId, name: String, superpower: String) -> Result<(), Error> {
     HEROES.with(|heroes| {
         let mut heroes_mut = heroes.borrow_mut();
-        if let Some(hero) = heroes_mut.get_mut(&id) {
+        match heroes_mut.get_mut(&id) {
+            Some(hero) => {
             // Authorization check: only the owner can update.
-            if hero.owner != caller() {
-                return Err("Only the owner can update this hero.".to_string());
+                if hero.owner != caller() {
+                    return Err(Error::NotAuthorized);
+                }
+                hero.name = name;
+                hero.superpower = superpower;
+                Ok(())
             }
-            hero.name = name;
-            hero.superpower = superpower;
-            Ok(())
-        } else {
-            Err("Hero not found.".to_string())
+            None => Err(Error::NotFound),
         }
     })
 }
 
 // Deletes a hero. Only the owner can delete it.
 #[update]
-fn delete_hero(id: HeroId) -> Result<(), String> {
+fn delete_hero(id: HeroId) -> Result<(), Error> {
     HEROES.with(|heroes| {
-        // First, check if the hero exists and if the caller is the owner.
-        if let Some(hero) = heroes.borrow().get(&id) {
-            if hero.owner != caller() {
-                return Err("Only the owner can delete this hero.".to_string());
+        match heroes.borrow().get(&id) {
+            Some(hero) if hero.owner == caller() => {
+                heroes.borrow_mut().remove(&id);
+                Ok(())
             }
-        } else {
-            return Err("Hero not found.".to_string());
-        }
-
-        // If the checks pass, remove the hero.
-        if heroes.borrow_mut().remove(&id).is_some() {
-            Ok(())
-        } else {
-            // This case should theoretically not be reached due to the checks above.
-            Err("Failed to delete hero.".to_string())
+            Some(_) => Err(Error::NotAuthorized),
+            None => Err(Error::NotFound),
         }
     })
 }
