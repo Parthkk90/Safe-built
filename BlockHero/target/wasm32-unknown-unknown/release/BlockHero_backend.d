@@ -1,1 +1,1 @@
-/mnt/f/Block_hero/BlockHero/target/wasm32-unknown-unknown/release/BlockHero_backend.wasm: /mnt/f/Block_hero/BlockHero/src/BlockHero_backend/src/lib.rs /mnt/f/Block_hero/BlockHero/src/BlockHero_backend/src/types.rs
+/mnt/f/W3/medi_chain/BlockHero/target/wasm32-unknown-unknown/release/BlockHero_backend.wasm: /mnt/f/W3/medi_chain/BlockHero/src/BlockHero_backend/src/lib.rs

@@ -1,5 +1,5 @@
 OPT_LEVEL = Some(0)
-OUT_DIR = Some(/mnt/f/Block_hero/BlockHero/target/release/build/psm-034c6939f64cf8f7/out)
+OUT_DIR = Some(/mnt/f/W3/medi_chain/BlockHero/target/release/build/psm-034c6939f64cf8f7/out)
 TARGET = Some(x86_64-unknown-linux-gnu)
 HOST = Some(x86_64-unknown-linux-gnu)
 cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
@@ -45,4 +45,4 @@ HOST_ARFLAGS = None
 cargo:rerun-if-env-changed=ARFLAGS
 ARFLAGS = None
 cargo:rustc-link-lib=static=psm_s
-cargo:rustc-link-search=native=/mnt/f/Block_hero/BlockHero/target/release/build/psm-034c6939f64cf8f7/out
+cargo:rustc-link-search=native=/mnt/f/W3/medi_chain/BlockHero/target/release/build/psm-034c6939f64cf8f7/out
