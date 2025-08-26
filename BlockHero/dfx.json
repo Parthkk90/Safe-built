@@ -5,7 +5,12 @@
       "type": "custom",
       "candid": "src/BlockHero_backend/BlockHero_backend.did",
       "wasm": "target/wasm32-unknown-unknown/release/BlockHero_backend.wasm",
-      "build": "cargo build --package BlockHero_backend --target wasm32-unknown-unknown --release"
+      "build": "cargo build --package BlockHero_backend --target wasm32-unknown-unknown --release",
+      "metadata": [
+        {
+          "name": "candid:service"
+        }
+      ]
     }
   },
   "defaults": {

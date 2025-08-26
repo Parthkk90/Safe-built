@@ -1,6 +1,8 @@
 [workspace]
-members = [ "Frontend",
-    "src/BlockHero_backend",
-    "src/BlockHero_frontend"
+members = [
+    "src/BlockHero_backend"
 ]
 resolver = "2"
+
+[net]
+git-fetch-with-cli = true
