@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DFINITY/dfx build artifacts and local state
 # This is the most important section for an IC project.
 .dfx/
@@ -37,3 +38,39 @@ yarn-error.log*
 # OS-generated files
 .DS_Store
 Thumbs.db
+=======
+# DFINITY Canister SDK
+.dfx/
+
+# Rust build artifacts
+/target/
+
+# Node.js dependencies
+/node_modules/
+
+# Frontend build output
+/src/BlockHero_frontend/dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+._*
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+/coverage/
+>>>>>>> e006408ec7ccc213fb172b048cffe80f10d62939

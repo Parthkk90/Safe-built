@@ -20,6 +20,10 @@ ic-cdk = "0.16"
 sha2 = "0.10"
 ic-stable-structures = "0.6.0"
 
+<<<<<<< HEAD
+=======
+chrono = "0.4"  
+>>>>>>> e006408ec7ccc213fb172b048cffe80f10d62939
 serde = "1"
 hex = "0.4"
 

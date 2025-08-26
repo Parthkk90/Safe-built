@@ -6,8 +6,12 @@
   "scripts": {
     "setup": "npm i && dfx canister create BlockHero_backend && dfx generate BlockHero_backend && dfx deploy",
     "start": "vite --port 3000",
+<<<<<<< HEAD
     "dev": "vite --port 3000",
     "prebuild": "dfx generate || echo skipped",
+=======
+    "prebuild": "echo skipped",
+>>>>>>> e006408ec7ccc213fb172b048cffe80f10d62939
     "build": "tsc && vite build",
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\""
   },
@@ -15,6 +19,10 @@
     "@dfinity/agent": "^1.4.0",
     "@dfinity/candid": "^1.4.0",
     "@dfinity/principal": "^1.4.0",
+<<<<<<< HEAD
+=======
+    "framer-motion": "^11.3.19",
+>>>>>>> e006408ec7ccc213fb172b048cffe80f10d62939
     "lucide-react": "^0.541.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
