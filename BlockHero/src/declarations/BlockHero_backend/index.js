@@ -13,7 +13,15 @@ export const canisterId =
   process.env.CANISTER_ID_BLOCKHERO_BACKEND;
 
 export const createActor = (canisterId, options = {}) => {
-  const agent = options.agent || new HttpAgent({ ...options.agentOptions });
+  // Force host in local dev to the replica port to avoid random ephemeral ports
+  const defaultHost = process.env.DFX_NETWORK === "ic"
+    ? "https://icp0.io"
+    : "http://127.0.0.1:8000";
+
+  const agent = options.agent || new HttpAgent({
+    host: defaultHost,
+    ...options.agentOptions,
+  });
 
   if (options.agent && options.agentOptions) {
     console.warn(

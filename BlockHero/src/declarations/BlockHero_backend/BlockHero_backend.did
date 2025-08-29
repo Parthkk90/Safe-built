@@ -7,10 +7,11 @@ type LogEntry = record {
 };
 
 service : {
+  "get_encrypted_key": (vec blob) -> (variant { Ok: record { encrypted_key: blob }; Err: text });
+  "upload_encrypted_file": (text, blob, nat8) -> ();
   "register_user": (principal, text, text, nat8) -> ();
   "check_user_registered": (principal) -> (bool) query;
   "login": (principal, text, text) -> (bool) query;
-  "upload_file": (text, text, nat8) -> ();
   "read_file": (text, principal) -> (text) query;
   "read_logs": (nat64, text) -> (vec LogEntry) query;
 }

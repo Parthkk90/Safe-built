@@ -1,0 +1,10 @@
+[package]
+name = "BlockHero_frontend"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+
+[package]
+name = "block_hero_backend"
